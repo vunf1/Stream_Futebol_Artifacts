@@ -1,0 +1,12 @@
+{
+  "name": "stream-futebol-logos",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build-bundle": "node scripts/build-bundle.mjs",
+    "test": "node --test scripts/build-bundle.test.mjs"
+  },
+  "dependencies": {
+    "archiver": "^7.0.1"
+  }
+}

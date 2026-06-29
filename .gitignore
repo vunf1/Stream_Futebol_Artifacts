@@ -1,0 +1,6 @@
+dist/
+manifest.json
+*.zip
+*.sha256
+node_modules/
+package-lock.json

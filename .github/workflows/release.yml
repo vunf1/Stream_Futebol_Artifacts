@@ -1,0 +1,48 @@
+name: Release logo bundle
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Ensure Git LFS objects are present
+        run: git lfs pull
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install build dependencies
+        run: npm ci
+
+      - name: Resolve semver from tag
+        id: ver
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          echo "version=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Build bundle
+        run: npm run build-bundle -- --version "${{ steps.ver.outputs.version }}"
+
+      - name: Verify logos directory not empty
+        run: test "$(find logos -maxdepth 1 -type f | wc -l)" -gt 0
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            dist/manifest.json
+            dist/logos-bundle-*.zip
+            dist/logos-bundle-*.zip.sha256
+          generate_release_notes: true
