@@ -12,16 +12,20 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          lfs: true
+          fetch-depth: 0
 
-      - name: Ensure Git LFS objects are present
-        run: git lfs pull
+      - name: Install Git LFS and fetch crest binaries
+        run: |
+          git lfs install
+          git lfs pull
 
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+          cache: npm
 
       - name: Install build dependencies
         run: npm ci
@@ -35,12 +39,17 @@ jobs:
       - name: Build bundle
         run: npm run build-bundle -- --version "${{ steps.ver.outputs.version }}"
 
-      - name: Verify logos directory not empty
-        run: test "$(find logos -maxdepth 1 -type f | wc -l)" -gt 0
+      - name: Verify bundle artifacts exist
+        run: |
+          test -f dist/manifest.json
+          test -n "$(ls dist/logos-bundle-*.zip 2>/dev/null)"
+          test -n "$(ls dist/logos-bundle-*.zip.sha256 2>/dev/null)"
+          node -e "const m=require('./dist/manifest.json'); if(m.file_count<1) process.exit(1)"
 
       - name: Create GitHub Release
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.ref_name }}
           files: |
             dist/manifest.json
             dist/logos-bundle-*.zip
