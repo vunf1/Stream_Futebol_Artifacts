@@ -2,6 +2,8 @@
 
 Flat image files under `logos/` are published as versioned zip bundles on GitHub Releases.
 
+**Latest release:** `v1.0.1` (169 crests).
+
 ## Maintainer workflow
 
 1. Add or update crest PNG/WebP/SVG files in `logos/` (flat folder only; no subdirectories).
