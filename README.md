@@ -31,9 +31,9 @@ Outputs land in `dist/` (gitignored).
 https://github.com/vunf1/Stream_Futebol_Logos/releases/latest/download/manifest.json
 ```
 
-## Git LFS
+## Git storage
 
-Binary crests should be tracked with Git LFS (`logos/*`). CI runs `git lfs pull` before building.
+Crest binaries are stored as regular git objects (~28 MB total). Git LFS is not used; GitHub Actions checks out the repo and runs `npm ci` without an LFS step.
 
 ## Naming
 
