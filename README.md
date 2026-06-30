@@ -2,7 +2,7 @@
 
 Flat image files under `logos/` are published as versioned zip bundles on GitHub Releases.
 
-**Latest release:** `v1.0.1` (169 crests).
+**Latest release:** `v1.0.1` (169 crests). Newer builds include per-file `files[]` and `changelog` in `manifest.json`.
 
 ## Maintainer workflow
 
@@ -11,11 +11,12 @@ Flat image files under `logos/` are published as versioned zip bundles on GitHub
 3. Tag a **semver** release and push the tag:
 
    ```bash
-   git tag v1.0.1
+   git tag v1.0.2
    git push origin main --tags
    ```
 
 4. GitHub Actions builds `dist/manifest.json`, `logos-bundle-<version>.zip`, and a `.sha256` sidecar, then attaches them to the Release.
+5. Commit the generated snapshot under `manifests/<version>.json` so the next release can diff added/updated/removed crests.
 
 ## Local build
 
@@ -25,7 +26,7 @@ npm run build-bundle -- --version 1.0.0
 npm test
 ```
 
-Outputs land in `dist/` (gitignored).
+Outputs land in `dist/` (gitignored). Per-version file lists are written to `manifests/<version>.json` (tracked in git).
 
 ## Manifest URL (desktop app)
 
