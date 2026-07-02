@@ -1,43 +1,43 @@
-# Team crest source files for Apito Final logo bundle releases.
+# Apito Final — downloads oficiais
 
-Flat image files under `logos/` are published as versioned zip bundles on GitHub Releases.
+Este repositório publica as **versões oficiais** do Apito Final: a aplicação Windows e o pacote de **emblemas oficiais** usados nos overlays do marcador.
 
-**Latest release:** `v1.0.2` (169 crests). Newer builds include per-file `files[]` and `changelog` in `manifest.json`.
+O uso normal é feito pela aplicação ou durante a instalação num PC novo. Não é necessário alterar ficheiros neste repositório no dia a dia.
 
-## Maintainer workflow
+## O que está disponível
 
-1. Add or update crest PNG/WebP/SVG files in `logos/` (flat folder only; no subdirectories).
-2. Commit and push to `main`.
-3. Tag a **semver** release and push the tag:
+| Tipo | Exemplo de etiqueta | Conteúdo |
+| ---- | ------------------- | -------- |
+| **Aplicação** | `app-v2.0.8` | Instalador Windows (`.msi`) e, quando incluído, script de instalação para máquinas novas |
+| **Emblemas** | `v1.0.3` | Emblemas oficiais das equipas para o marcador |
 
-   ```bash
-   git tag v1.0.2
-   git push origin main --tags
-   ```
+Consulte a página [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases) para ver todas as versões. Cada versão da aplicação tem a sua própria release; os emblemas seguem numeração independente.
 
-4. GitHub Actions builds `dist/manifest.json`, `logos-bundle-<version>.zip`, and a `.sha256` sidecar, then attaches them to the Release.
-5. Commit the generated snapshot under `manifests/<version>.json` so the next release can diff added/updated/removed crests.
+## Recomendado: instalar e atualizar pela aplicação
 
-## Local build
+1. Instale o Apito Final no Windows (ver abaixo se for uma máquina nova).
+2. No rodapé do launcher ou do dashboard de campo, clique no **ícone de atualizações**.
+3. Na janela que abre pode:
+   - instalar ou atualizar os **emblemas oficiais** quando faltam ou estão desatualizados;
+   - instalar uma versão mais recente da **aplicação**, se existir.
 
-```bash
-npm ci
-npm run build-bundle -- --version 1.0.0
-npm test
-```
+A aplicação descarrega as releases daqui, verifica a integridade dos ficheiros e orienta a instalação. Emblemas personalizados que tenha adicionado localmente são mantidos ao instalar o pacote oficial.
 
-Outputs land in `dist/` (gitignored). Per-version file lists are written to `manifests/<version>.json` (tracked in git).
+## Instalação nova (Windows)
 
-## Manifest URL (desktop app)
+Num ambiente controlado, num PC sem a aplicação:
 
-```text
-https://github.com/vunf1/Stream_Futebol_Artifacts/releases/latest/download/manifest.json
-```
+1. Abra [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases).
+2. Escolha a release **Apito Final** mais recente (etiqueta `app-v…`).
+3. Execute **`Install-ApitoFinal.ps1`**, se estiver incluída. Prepara a confiança do instalador assinado e inicia a instalação.
+4. Se o script não existir na release, execute **`ApitoFinal-<versão>-setup.msi`**.
 
-## Git storage
+Depois da instalação, use o ícone de atualizações na aplicação para instalar os emblemas oficiais, se for solicitado.
 
-Crest binaries are stored as regular git objects (~28 MB total). Git LFS is not used; GitHub Actions checks out the repo and runs `npm ci` without an LFS step.
+## Descarregar emblemas manualmente (opcional)
 
-## Naming
+O método habitual é instalar pela aplicação. Se o seu fluxo exigir cópia manual, descarregue **`logos-bundle-<versão>.zip`** na release de emblemas correspondente (`v…`) na página Releases.
 
-Use basename stems that match club display names (see `futebol-dashboard` `team_logo.rs` token matching). Examples: `sporting-cp.png`, `SL-BENFICA.png`.
+## Apoio
+
+Problemas com instalação ou atualizações: contacte o administrador do Apito Final ou o canal de apoio JMSIT.
