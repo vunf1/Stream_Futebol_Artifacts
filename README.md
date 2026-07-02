@@ -1,43 +1,43 @@
-# Apito Final — downloads oficiais
+# Apito Final — official downloads
 
-Este repositório publica as **versões oficiais** do Apito Final: a aplicação Windows e o pacote de **emblemas oficiais** usados nos overlays do marcador.
+This repository publishes **official releases** for Apito Final: the Windows desktop application and the **official team crest** package used on scoreboard overlays.
 
-O uso normal é feito pela aplicação ou durante a instalação num PC novo. Não é necessário alterar ficheiros neste repositório no dia a dia.
+Normal use is through the application or during setup on a new PC. You do not need to change files in this repository for day-to-day operation.
 
-## O que está disponível
+## What is available
 
-| Tipo | Exemplo de etiqueta | Conteúdo |
-| ---- | ------------------- | -------- |
-| **Aplicação** | `app-v2.0.8` | Instalador Windows (`.msi`) e, quando incluído, script de instalação para máquinas novas |
-| **Emblemas** | `v1.0.3` | Emblemas oficiais das equipas para o marcador |
+| Type | Tag example | Contents |
+| ---- | ----------- | -------- |
+| **Application** | `app-v2.0.8` | Windows installer (`.msi`) and, when included, a one-step setup script for new machines |
+| **Team crests** | `v1.0.3` | Official club crests for the scoreboard |
 
-Consulte a página [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases) para ver todas as versões. Cada versão da aplicação tem a sua própria release; os emblemas seguem numeração independente.
+See the [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases) page for every version. Each application version has its own release; crest bundles use a separate version series.
 
-## Recomendado: instalar e atualizar pela aplicação
+## Recommended: install and update from the app
 
-1. Instale o Apito Final no Windows (ver abaixo se for uma máquina nova).
-2. No rodapé do launcher ou do dashboard de campo, clique no **ícone de atualizações**.
-3. Na janela que abre pode:
-   - instalar ou atualizar os **emblemas oficiais** quando faltam ou estão desatualizados;
-   - instalar uma versão mais recente da **aplicação**, se existir.
+1. Install Apito Final on Windows (see below if this is a new machine).
+2. In the launcher or campo dashboard footer, click the **updates icon**.
+3. In the window that opens you can:
+   - install or refresh **official team crests** when they are missing or outdated;
+   - install a newer **application** version when one is available.
 
-A aplicação descarrega as releases daqui, verifica a integridade dos ficheiros e orienta a instalação. Emblemas personalizados que tenha adicionado localmente são mantidos ao instalar o pacote oficial.
+The app downloads releases from here, verifies file integrity, and guides installation. Custom crest files you added locally are kept when you install the official bundle.
 
-## Instalação nova (Windows)
+## Fresh install (Windows)
 
-Num ambiente controlado, num PC sem a aplicação:
+On a controlled PC without the application yet:
 
-1. Abra [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases).
-2. Escolha a release **Apito Final** mais recente (etiqueta `app-v…`).
-3. Execute **`Install-ApitoFinal.ps1`**, se estiver incluída. Prepara a confiança do instalador assinado e inicia a instalação.
-4. Se o script não existir na release, execute **`ApitoFinal-<versão>-setup.msi`**.
+1. Open [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases).
+2. Choose the latest **Apito Final** release (tag `app-v…`).
+3. Run **`Install-ApitoFinal.ps1`** if it is included. It prepares trust for the signed installer and starts setup.
+4. If that script is not on the release, run **`ApitoFinal-<version>-setup.msi`** instead.
 
-Depois da instalação, use o ícone de atualizações na aplicação para instalar os emblemas oficiais, se for solicitado.
+After installation, use the in-app updates icon to install official team crests if prompted.
 
-## Descarregar emblemas manualmente (opcional)
+## Manual crest download (optional)
 
-O método habitual é instalar pela aplicação. Se o seu fluxo exigir cópia manual, descarregue **`logos-bundle-<versão>.zip`** na release de emblemas correspondente (`v…`) na página Releases.
+The usual method is to install through the app. If your workflow requires a manual copy, download **`logos-bundle-<version>.zip`** from the matching crest release (`v…`) on the Releases page.
 
-## Apoio
+## Support
 
-Problemas com instalação ou atualizações: contacte o administrador do Apito Final ou o canal de apoio JMSIT.
+For installation or update issues, contact your Apito Final administrator or the JMSIT support channel.
