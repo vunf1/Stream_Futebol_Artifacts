@@ -8,7 +8,7 @@ Normal use is through the application or during setup on a new PC. You do not ne
 
 | Type | Tag example | Contents |
 | ---- | ----------- | -------- |
-| **Application** | `app-v2.0.8` | Windows installer (`.msi`) and, when included, a one-step setup script for new machines |
+| **Application** | `app-v2.0.8` | Windows installer (`.msi`), Linux `.AppImage` and `.deb`, and when included a one-step Windows setup script |
 | **Team crests** | `v1.0.3` | Official club crests for the scoreboard |
 
 See the [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases) page for every version. Each application version has its own release; crest bundles use a separate version series.
@@ -33,6 +33,16 @@ On a controlled PC without the application yet:
 4. If that script is not on the release, run **`ApitoFinal-<version>-setup.msi`** instead.
 
 After installation, use the in-app updates icon to install official team crests if prompted.
+
+## Fresh install (Linux)
+
+On a Linux PC without the application yet:
+
+1. Open [**Releases**](https://github.com/vunf1/Stream_Futebol_Artifacts/releases).
+2. Choose the matching **Apito Final** release (tag `app-v…`).
+3. Install using either the **`.AppImage`** (portable) or the **`.deb`** package for your distribution.
+
+In-app self-update is available on Windows only; on Linux, install newer versions manually from the Releases page.
 
 ## Manual crest download (optional)
 
